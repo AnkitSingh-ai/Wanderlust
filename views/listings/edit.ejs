@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate') %>
+
+    <h3>Edit Listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title" name="listing[title]"  class="form-control"  value="<%= listing.title %>">
+            
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" name="listing[description]"  class="form-control"  required ><%= listing.description %></textarea>
+            
+        </div>
+
+        <div class="mb-3">
+            Original listing Image <br/>
+            <img src="<%= originalImageUrl %>" /> 
+            </div>
+       
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload new image</label>
+            <input type="file" name="listing[image]" class="form-control"   required >
+        
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location:</label>
+            <input type="text" id="location" name="listing[location]"  value="<%= listing.location %>" required>
+            
+        </div>
+       <div class="row">
+        <div class="mb-3 col-4">
+            <label for="price" class="form-label">Price:</label>
+            <input type="number" id="price" name="listing[price]" class="form-control"  value="<%= listing.price %>" required >
+            
+        </div>
+        
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country:</label>
+            <input type="text" id="country" name="listing[country]"  class="form-control"  value="<%= listing.country %> "required>
+            
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <select id="category" name="listing[category]" class="form-control" required>
+            <option value="">Select a category</option>
+            <option value="apartment" <%= listing.category === 'apartment' ? 'selected' : '' %>>Apartment</option>
+            <option value="house" <%= listing.category === 'house' ? 'selected' : '' %>>House</option>
+            <option value="condo" <%= listing.category === 'condo' ? 'selected' : '' %>>Condo</option>
+            <option value="villa" <%= listing.category === 'villa' ? 'selected' : '' %>>Villa</option>
+            <option value="studio" <%= listing.category === 'studio' ? 'selected' : '' %>>Studio</option>
+            <option value="loft" <%= listing.category === 'loft' ? 'selected' : '' %>>Loft</option>
+            <option value="cabin" <%= listing.category === 'cabin' ? 'selected' : '' %>>Cabin</option>
+            <option value="beach-house" <%= listing.category === 'beach-house' ? 'selected' : '' %>>Beach House</option>
+        </select>
+    </div>
+    <br/>
+        <button  type="submit" class="btn btn-dark edit-btn">Update Listing</button>
+
+    </form>

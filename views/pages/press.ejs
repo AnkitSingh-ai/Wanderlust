@@ -1,0 +1,78 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+  .press-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .press-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+  }
+
+  .press-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .press-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .press-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .press-content h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+
+  .press-content p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .btn-contact {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-contact:hover {
+    transform: translateY(-2px);
+    color: white;
+  }
+</style>
+
+<div class="press-container">
+  <div class="press-hero">
+    <h1>Press & Media</h1>
+    <p>Latest news and media resources about Wanderlust</p>
+  </div>
+
+  <div class="press-content">
+    <h3>Media Inquiries</h3>
+    <p>For press inquiries, media kits, or interview requests, please contact our press team. We're happy to provide information about Wanderlust and our mission to revolutionize travel.</p>
+    <a href="/contact" class="btn-contact">Contact Press Team</a>
+  </div>
+</div>

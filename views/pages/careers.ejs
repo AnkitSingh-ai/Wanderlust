@@ -1,0 +1,78 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+  .careers-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .careers-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+  }
+
+  .careers-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .careers-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .careers-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .careers-content h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+
+  .careers-content p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .btn-apply {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-apply:hover {
+    transform: translateY(-2px);
+    color: white;
+  }
+</style>
+
+<div class="careers-container">
+  <div class="careers-hero">
+    <h1>Join Our Team</h1>
+    <p>Help us build the future of travel and accommodation</p>
+  </div>
+
+  <div class="careers-content">
+    <h3>We're Hiring!</h3>
+    <p>Wanderlust is growing fast and we're looking for talented individuals to join our team. We offer competitive salaries, great benefits, and the opportunity to work on cutting-edge technology that's changing how people travel.</p>
+    <a href="/contact" class="btn-apply">View Open Positions</a>
+  </div>
+</div>

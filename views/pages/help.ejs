@@ -1,0 +1,190 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+  .help-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .help-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+  }
+
+  .help-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .help-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .help-search {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+
+  .help-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .help-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .help-category h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .help-links {
+    list-style: none;
+    padding: 0;
+  }
+
+  .help-links li {
+    margin-bottom: 0.8rem;
+  }
+
+  .help-links a {
+    color: #4a5568;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .help-links a:hover {
+    color: #667eea;
+  }
+
+  .contact-support {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+  }
+
+  .contact-support h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+
+  .contact-support p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-contact {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-contact:hover {
+    transform: translateY(-2px);
+    color: white;
+  }
+</style>
+
+<div class="help-container">
+  <div class="help-hero">
+    <h1>Help Center</h1>
+    <p>Find answers to your questions and get the support you need</p>
+  </div>
+
+  <div class="help-search">
+    <h3>Search for help</h3>
+    <input type="text" class="search-input" placeholder="What can we help you with?">
+    <button class="btn-contact">Search</button>
+  </div>
+
+  <div class="help-categories">
+    <div class="help-category">
+      <h3><i class="fa-solid fa-user me-2"></i>Getting Started</h3>
+      <ul class="help-links">
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to create an account</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to book a listing</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to add a listing</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to verify your identity</a></li>
+      </ul>
+    </div>
+
+    <div class="help-category">
+      <h3><i class="fa-solid fa-home me-2"></i>Hosting</h3>
+      <ul class="help-links">
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to create a listing</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to set pricing</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to manage bookings</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to handle cancellations</a></li>
+      </ul>
+    </div>
+
+    <div class="help-category">
+      <h3><i class="fa-solid fa-credit-card me-2"></i>Payments</h3>
+      <ul class="help-links">
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to add payment method</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to get paid as a host</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Understanding fees</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Refund policy</a></li>
+      </ul>
+    </div>
+
+    <div class="help-category">
+      <h3><i class="fa-solid fa-shield-alt me-2"></i>Safety & Security</h3>
+      <ul class="help-links">
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Safety guidelines</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>How to report issues</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Emergency contacts</a></li>
+        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Trust and verification</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contact-support">
+    <h3>Still need help?</h3>
+    <p>Can't find what you're looking for? Our support team is here to help you 24/7.</p>
+    <a href="/contact" class="btn-contact">Contact Support</a>
+  </div>
+</div>

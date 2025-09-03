@@ -1,0 +1,78 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+  .blog-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .blog-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+  }
+
+  .blog-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .blog-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .blog-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .blog-content h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .btn-subscribe {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-subscribe:hover {
+    transform: translateY(-2px);
+    color: white;
+  }
+</style>
+
+<div class="blog-container">
+  <div class="blog-hero">
+    <h1>Travel Blog</h1>
+    <p>Discover travel tips, destination guides, and inspiring stories</p>
+  </div>
+
+  <div class="blog-content">
+    <h3>Coming Soon!</h3>
+    <p>Our travel blog is currently under development. Soon you'll find amazing travel guides, destination tips, and inspiring stories from travelers around the world. Stay tuned!</p>
+    <a href="/contact" class="btn-subscribe">Get Notified</a>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+  .about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .about-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .about-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-section h2 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .about-section p {
+    color: #4a5568;
+    line-height: 1.6;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: #4a5568;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .about-hero h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div class="about-container">
+  <div class="about-hero">
+    <h1>About Wanderlust</h1>
+    <p>Connecting travelers with unique accommodations and unforgettable experiences around the world.</p>
+  </div>
+
+  <div class="about-content">
+    <div class="about-section">
+      <h2>Our Mission</h2>
+      <p>At Wanderlust, we believe that travel should be about discovering new places, meeting new people, and creating memories that last a lifetime. Our platform connects travelers with unique accommodations and local experiences that go beyond the ordinary.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Our Vision</h2>
+      <p>To become the world's leading platform for authentic travel experiences, where every journey is an adventure and every stay is a story waiting to be told. We envision a world where travel brings people together and creates lasting connections.</p>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">10K+</div>
+      <div class="stat-label">Happy Travelers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5K+</div>
+      <div class="stat-label">Unique Listings</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Countries</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">4.8★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>Our Story</h2>
+    <p>Founded in 2024, Wanderlust was born from a simple idea: travel should be about more than just finding a place to sleep. We wanted to create a platform where travelers could discover unique accommodations that reflect the local culture and provide authentic experiences.</p>
+    <p>Today, we're proud to connect thousands of travelers with amazing hosts around the world, creating a community of people who share a passion for exploration and discovery.</p>
+  </div>
+</div>

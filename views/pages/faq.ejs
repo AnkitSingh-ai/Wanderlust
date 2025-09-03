@@ -1,0 +1,332 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+  .faq-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .faq-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+  }
+
+  .faq-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .faq-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .faq-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .faq-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-category h3 {
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1rem;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .faq-question {
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .faq-question:hover {
+    color: #667eea;
+  }
+
+  .faq-answer {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-left: 1.5rem;
+  }
+
+  .search-faq {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+
+  .btn-search {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-search:hover {
+    transform: translateY(-2px);
+  }
+
+  .contact-cta {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+  }
+
+  .contact-cta h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+
+  .contact-cta p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-contact {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-contact:hover {
+    transform: translateY(-2px);
+    color: white;
+  }
+</style>
+
+<div class="faq-container">
+  <div class="faq-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Find answers to the most common questions about Wanderlust</p>
+  </div>
+
+  <div class="search-faq">
+    <h3>Search FAQ</h3>
+    <input type="text" class="search-input" placeholder="Search for a question...">
+    <button class="btn-search">Search</button>
+  </div>
+
+  <div class="faq-categories">
+    <div class="faq-category">
+      <h3><i class="fa-solid fa-user"></i>Getting Started</h3>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          How do I create an account?
+        </div>
+        <div class="faq-answer">
+          Click the "Sign Up" button in the top right corner, fill in your details, and verify your email address.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          Is it free to join Wanderlust?
+        </div>
+        <div class="faq-answer">
+          Yes, creating an account and browsing listings is completely free. We only charge fees when you make a booking.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          How do I verify my identity?
+        </div>
+        <div class="faq-answer">
+          Go to your profile settings and follow the verification process. You'll need to provide a government-issued ID.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h3><i class="fa-solid fa-home"></i>Booking & Stays</h3>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          How do I book a listing?
+        </div>
+        <div class="faq-answer">
+          Find a listing you like, select your dates, review the details, and click "Book Now" to complete your reservation.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          Can I cancel my booking?
+        </div>
+        <div class="faq-answer">
+          Yes, cancellation policies vary by listing. Check the cancellation policy before booking.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          What if I have issues during my stay?
+        </div>
+        <div class="faq-answer">
+          Contact your host first. If you can't resolve the issue, contact our support team for assistance.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h3><i class="fa-solid fa-user-tie"></i>Hosting</h3>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          How do I list my property?
+        </div>
+        <div class="faq-answer">
+          Click "Add Listing" in the navigation, fill out the property details, add photos, and set your pricing.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          How much can I earn as a host?
+        </div>
+        <div class="faq-answer">
+          Earnings depend on your location, property type, and pricing. Many hosts earn significant income from their listings.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          What are the hosting requirements?
+        </div>
+        <div class="faq-answer">
+          You need to provide accurate information, maintain high standards, and respond to guests promptly.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h3><i class="fa-solid fa-credit-card"></i>Payments & Fees</h3>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          What payment methods do you accept?
+        </div>
+        <div class="faq-answer">
+          We accept all major credit cards, PayPal, and other secure payment methods.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          When am I charged for my booking?
+        </div>
+        <div class="faq-answer">
+          You're charged when you make the booking. The host receives payment after your stay.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          What fees does Wanderlust charge?
+        </div>
+        <div class="faq-answer">
+          We charge a service fee to guests and a host fee to property owners. These fees help us maintain the platform.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <h3><i class="fa-solid fa-shield-alt"></i>Safety & Security</h3>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          Is Wanderlust safe to use?
+        </div>
+        <div class="faq-answer">
+          Yes, we have strict safety measures, verified profiles, and 24/7 support to ensure your safety.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          How do you verify hosts and guests?
+        </div>
+        <div class="faq-answer">
+          We verify identity documents, phone numbers, and email addresses. We also have a review system for accountability.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fa-solid fa-chevron-right"></i>
+          What if something goes wrong?
+        </div>
+        <div class="faq-answer">
+          We have a comprehensive insurance policy and support team to help resolve any issues that may arise.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-cta">
+    <h3>Still have questions?</h3>
+    <p>Can't find the answer you're looking for? Our support team is here to help!</p>
+    <a href="/contact" class="btn-contact">Contact Support</a>
+  </div>
+</div>

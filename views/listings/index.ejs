@@ -1,0 +1,720 @@
+<% layout('./layouts/boilerplate') -%>
+  
+<style>
+  /* Enhanced Filter Section - Smaller Buttons */
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .filter {
+    text-decoration: none;
+    color: #495057;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-width: 80px;
+    max-width: 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+  }
+
+  .filter:hover::before {
+    left: 100%;
+  }
+
+  .filter:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: #495057;
+  }
+
+  .filter.active {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+  }
+
+  .filter.active:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  }
+
+  .filter i {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    transition: transform 0.3s ease;
+  }
+
+  .filter:hover i {
+    transform: scale(1.1);
+  }
+
+  .filter.active i {
+    color: white;
+  }
+
+  .filter p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+  }
+
+  /* Tax Toggle Styling */
+  .tax-toggle {
+    border: 2px solid #dee2e6;
+    border-radius: 25px;
+    height: 3.5rem;
+    padding: 1rem 2rem;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .tax-toggle:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+  }
+
+  .tax-info {
+    display: none;
+  }
+
+  /* Enhanced Listing Cards - Improved UI */
+  .listing-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+  }
+
+  .listing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  .listing-card img {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .listing-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .card-body {
+    padding: 1rem;
+    background: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 130px;
+  }
+
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-footer {
+    margin-top: auto;
+    padding-top: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    color: #1a202c;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding: 0;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-weight: 500;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #filters {
+      gap: 0.8rem;
+      padding: 1rem 0.5rem;
+    }
+    
+    .filter {
+      padding: 0.6rem 1rem;
+      min-width: 70px;
+      max-width: 85px;
+    }
+    
+    .filter i {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .filter p {
+      font-size: 0.7rem;
+    }
+    
+    .tax-toggle {
+      margin-left: 0;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+
+        .card-body {
+      padding: 1rem;
+      min-height: 120px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      min-height: 2.2rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+    }
+
+    .price-section .h5 {
+      font-size: 1.1rem;
+    }
+
+    .btn-outline-primary {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .page-header {
+      padding: 1.5rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+    }
+
+    .page-subtitle {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Enhanced Page Header - Smaller Size */
+  .page-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.01em;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Decorative elements */
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    border-radius: 2px;
+  }
+
+  /* Animation effects */
+  .page-title {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .page-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover effect for the header */
+  .page-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  /* Enhanced Listing Cards */
+  .listing-link {
+    text-decoration: none !important;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .listing-link:hover {
+    text-decoration: none !important;
+    color: inherit;
+    transform: translateY(-4px);
+  }
+
+  .listing-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    background: white;
+  }
+
+  .listing-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .listing-link:hover .card-img-top {
+    transform: scale(1.05);
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 123, 255, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .price-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .price-section .h5 {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #1a202c;
+    margin: 0;
+    line-height: 1;
+    padding: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .price-section small {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+  }
+
+  .tax-info {
+    font-size: 0.7rem !important;
+    color: #9ca3af !important;
+    font-weight: 400 !important;
+  }
+
+  .btn-outline-primary {
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+  }
+
+  .btn-outline-primary i {
+    font-size: 0.8rem;
+  }
+
+  /* Ensure proper text wrapping and containment */
+  .card-title {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.4rem; /* Ensure consistent height for 2 lines */
+  }
+
+  .card-text {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 1.2rem; /* Ensure consistent height for 1 line */
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .card-text i {
+    color: #9ca3af;
+    font-size: 0.8rem;
+  }
+
+  /* Card hover effects */
+  .listing-link:hover .card-title {
+    color: #2563eb;
+  }
+
+  /* Image overlay for better badge visibility */
+  .position-relative::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .badge {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6c757d;
+  }
+
+  .empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  /* Loading Animation */
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Smooth Transitions */
+  * {
+    transition: all 0.3s ease;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+  }
+</style>
+    <!-- Impressive Page Header -->
+    <div class="page-header">
+      <h1 class="page-title">Discover Your Perfect Stay</h1>
+      <p class="page-subtitle">Explore our curated collection of unique accommodations, from cozy apartments to luxury villas. Find your ideal home away from home.</p>
+    </div>
+
+    <!-- Enhanced Filter Section -->
+    <div id="filters">
+      <a href="/listings" class="filter <%= selectedCategory === 'all' || !selectedCategory ? 'active' : '' %>" data-category="all" onclick="filterListings('all')">
+        <div><i class="fa-solid fa-list"></i></div>
+        <p>All</p>
+      </a>
+
+      <a href="/listings?category=apartment" class="filter <%= selectedCategory === 'apartment' ? 'active' : '' %>" data-category="apartment" onclick="filterListings('apartment')">
+        <div><i class="fa-solid fa-building"></i></div>
+        <p>Apartment</p>
+      </a>
+
+      <a href="/listings?category=house" class="filter <%= selectedCategory === 'house' ? 'active' : '' %>" data-category="house" onclick="filterListings('house')">
+       <div><i class="fa-solid fa-house"></i></div> 
+        <p>House</p>
+      </a>
+
+      <a href="/listings?category=condo" class="filter <%= selectedCategory === 'condo' ? 'active' : '' %>" data-category="condo" onclick="filterListings('condo')">
+        <div><i class="fa-solid fa-city"></i></div>
+        <p>Condo</p>
+      </a>
+
+      <a href="/listings?category=villa" class="filter <%= selectedCategory === 'villa' ? 'active' : '' %>" data-category="villa" onclick="filterListings('villa')">
+        <div><i class="fa-solid fa-crown"></i></div>
+        <p>Villa</p>
+      </a>
+
+      <a href="/listings?category=studio" class="filter <%= selectedCategory === 'studio' ? 'active' : '' %>" data-category="studio" onclick="filterListings('studio')">
+        <div><i class="fa-solid fa-home"></i></div>
+        <p>Studio</p>
+      </a>
+
+      <a href="/listings?category=loft" class="filter <%= selectedCategory === 'loft' ? 'active' : '' %>" data-category="loft" onclick="filterListings('loft')">
+        <div><i class="fa-solid fa-warehouse"></i></div>
+        <p>Loft</p>
+      </a>
+
+      <a href="/listings?category=cabin" class="filter <%= selectedCategory === 'cabin' ? 'active' : '' %>" data-category="cabin" onclick="filterListings('cabin')">
+        <div><i class="fa-solid fa-tree"></i></div>
+        <p>Cabin</p>
+      </a>
+
+      <a href="/listings?category=beach-house" class="filter <%= selectedCategory === 'beach-house' ? 'active' : '' %>" data-category="beach-house" onclick="filterListings('beach-house')">
+       <div><i class="fa-solid fa-umbrella-beach"></i></div>
+        <p>Beach House</p>
+      </a>
+
+      <div class="tax-toggle">
+      <div class="form-check-reverse form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+        <label class="form-check-label" for="switchCheckDefault">Display Total after Taxes</label>
+      </div>
+      </div>
+
+    </div>
+
+    <!-- Enhanced Listings Grid -->
+    <div class="container-fluid">
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4 mt-4">
+        <% listings.forEach(function(listing) { %>
+          <div class="col">
+            <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none">
+              <div class="card listing-card h-100">
+                <div class="position-relative overflow-hidden">
+                  <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>">
+                  <div class="position-absolute top-0 end-0 m-2">
+                    <span class="badge bg-primary px-2 py-1 rounded-pill text-capitalize" style="font-size: 0.7rem;">
+                      <i class="fa-solid fa-tag me-1"></i><%= listing.category.replace('-', ' ') %>
+                    </span>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="card-content">
+                    <h5 class="card-title"><%= listing.title %></h5>
+                    <p class="card-text">
+                      <i class="fa-solid fa-map-marker-alt me-2" style="color: #9ca3af;"></i><%= listing.location %>, <%= listing.country %>
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="price-section">
+                        <span class="h5">$<%= listing.price %></span>
+                        <small>per night</small>
+                        <i class="tax-info text-muted small">&nbsp;+18% GST</i>
+                      </div>
+                      <div class="view-details">
+                        <span class="btn btn-outline-primary">
+                          <i class="fa-solid fa-eye me-1"></i>View
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+              </div>
+              <% }); %>
+      </div>
+       </div>    
+
+   <script>
+    // Global filter function (optional enhancement)
+    function filterListings(category) {
+      console.log('filterListings called with:', category);
+      // The links will handle the navigation, this is just for any additional functionality
+    }
+
+    // Tax toggle functionality
+    let taxSwitch = document.getElementById("switchCheckDefault");
+    taxSwitch.addEventListener("click" , ()=>{
+      let taxInfo = document.getElementsByClassName("tax-info");
+      for (info of taxInfo){
+        if(info.style.display !== "inline") {
+          info.style.display = "inline";
+        }
+        else{
+          info.style.display = "none"
+        }
+      }
+    })
+
+    // Active state is now handled server-side in the EJS template
+   </script>
+
+
+
+ 
+    

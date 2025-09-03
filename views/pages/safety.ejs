@@ -1,0 +1,137 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+  .safety-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .safety-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+  }
+
+  .safety-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .safety-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .safety-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .safety-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .safety-section h3 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .safety-section p {
+    color: #4a5568;
+    line-height: 1.6;
+  }
+
+  .safety-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .safety-feature {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .safety-feature i {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+  }
+
+  .safety-feature h4 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+
+  .safety-feature p {
+    color: #4a5568;
+  }
+
+  @media (max-width: 768px) {
+    .safety-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .safety-hero h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div class="safety-container">
+  <div class="safety-hero">
+    <h1>Safety & Security</h1>
+    <p>Your safety is our top priority. Learn about our comprehensive safety measures.</p>
+  </div>
+
+  <div class="safety-content">
+    <div class="safety-section">
+      <h3>Our Commitment</h3>
+      <p>At Wanderlust, we take safety seriously. We've implemented multiple layers of security to protect both hosts and guests, ensuring every experience is safe and enjoyable.</p>
+    </div>
+
+    <div class="safety-section">
+      <h3>24/7 Support</h3>
+      <p>Our dedicated safety team is available around the clock to assist with any concerns or emergencies. We're here to help whenever you need us.</p>
+    </div>
+  </div>
+
+  <div class="safety-features">
+    <div class="safety-feature">
+      <i class="fa-solid fa-shield-alt"></i>
+      <h4>Verified Profiles</h4>
+      <p>All users must verify their identity with government-issued ID and phone number verification.</p>
+    </div>
+    <div class="safety-feature">
+      <i class="fa-solid fa-star"></i>
+      <h4>Review System</h4>
+      <p>Comprehensive review system helps maintain high standards and accountability.</p>
+    </div>
+    <div class="safety-feature">
+      <i class="fa-solid fa-phone"></i>
+      <h4>Emergency Support</h4>
+      <p>24/7 emergency hotline for urgent safety concerns or incidents.</p>
+    </div>
+    <div class="safety-feature">
+      <i class="fa-solid fa-lock"></i>
+      <h4>Secure Payments</h4>
+      <p>All payments are processed securely with industry-standard encryption.</p>
+    </div>
+  </div>
+</div>
